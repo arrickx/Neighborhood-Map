@@ -83,17 +83,17 @@ function initMap() {
     mapTypeControl: false,
     streetViewControl: false,
   });
-};
+}
 // if the map run into an error, it will alert the user.
 function mapError() {
     alert("Something's wrong with the map. Please try again later!");
-};
+}
 
 // this creates the connection between the data and the user interface.
 function destination(data) {
   this.name = ko.observable(data.name);
   this.location = ko.observable(data.location);
-};
+}
 
 function ViewModel() {
   var self = this;
@@ -150,7 +150,7 @@ function ViewModel() {
       // if ajax works correctly it will abstract information from foursquare
       success: function(data) {
         venue = data.response.venues[0];
-        name = venue.name;
+        venuename = venue.name;
         address1 = venue.location.formattedAddress[0];
         address2 = venue.location.formattedAddress[1];
         foursquareId = venue.id;
@@ -180,20 +180,19 @@ function ViewModel() {
           }
         });
         // Generate the infomation to the info window.
-        content = '<div class="infotitle">'+name+'</div>'+
-        '<img class ="picture" src="'+img+'"/>'+
-        '<div class="address">'+address1+'</div>'+'<div class="address">'
-        +address2+'</div>'+
+        content = '<div class="infotitle">'+venuename+'</div>'+
+        '<img class ="picture" src="'+img+'"/>'+'<div class="address">'+
+        address1+'</div>'+'<div class="address">'+address2+'</div>'+
         "<a href='"+foursquarelink+"'target='_blank'>"+"More Info"+"</a>";
       },
       // If the AJAX not working, show the error message to the user.
       error: function() {
-          content = '<div class="name">'+'Something wrong right now.'+
+          content = '<div class="infotitle">'+'Something wrong right now.'+
           ' Please try again.'+'</div>';
       }
     });
       marker.setAnimation(google.maps.Animation.BOUNCE);
-      setTimeout(function() {marker.setAnimation(null)}, 1420);
+      setTimeout(function() {marker.setAnimation(null);}, 1420);
       infowindow.marker = marker;
       infowindow.setContent(content);
       infowindow.open(map, marker);
@@ -212,7 +211,7 @@ function ViewModel() {
       map.setZoom(16);
       map.panTo(data.location);
       data.marker.setAnimation(google.maps.Animation.BOUNCE);
-      setTimeout(function() {data.marker.setAnimation(null)}, 1420);
+      setTimeout(function() {data.marker.setAnimation(null);}, 1420);
       populateInfoWindow(data.marker, largeInfowindow);
       //if it's a small screen, it will return to the map afterward.
       if (screen.width < 500) {
@@ -238,7 +237,7 @@ function ViewModel() {
     });
   });
 
-};
+}
 
 //this is how the hamburger button can show and hide the side navigation
 function openNav() {
@@ -249,7 +248,7 @@ function openNav() {
     document.getElementById("map").style.marginLeft = "0px";
     document.getElementById("hamberger").style.left = "20px";
   }
-};
+}
 
 //this make sure everything is ready before showing the website.
 $(document).ready(function() {
