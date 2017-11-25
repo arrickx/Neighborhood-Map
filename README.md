@@ -3,7 +3,7 @@
 
 ## Getting Started
 
-* You can *[clone](TODO)* or *[download](TODO)* this project via [GitHub](https://github.com) to your local machine.
+* You can *[clone](https://github.com/arrickx/Neighborhood-Map.git)* or *[download](https://github.com/arrickx/Neighborhood-Map.git)* this project via [GitHub](https://github.com) to your local machine.
 
 ### How to use
 
