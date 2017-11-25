@@ -1,9 +1,9 @@
 # Neighborhood Map
-* This is my portfolio website that shows some of my hobbits and.
+* This is a single page application featuring a map of my neighborhood in Brooklyn New York. And also using Foursquare to provide you more information about that location.
 
 ## Getting Started
 
-* You can *[clone](TODO)* or *[download](TODO)* this project via [GitHub](https://github.com) to your local machine.
+* You can *[clone](https://github.com/arrickx/Neighborhood-Map.git)* or *[download](https://github.com/arrickx/Neighborhood-Map.git)* this project via [GitHub](https://github.com) to your local machine.
 
 ### How to use
 
@@ -18,4 +18,6 @@
 * This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 
+## Acknowledgments
 
+* **No img Image** was provided by [Twitter](https://pbs.twimg.com/media/DIxqdQFUQAEunYd.jpg).
