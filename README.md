@@ -1,5 +1,5 @@
 # Neighborhood Map
-* This is my portfolio website that shows some of my hobbits and.
+* This is a single page application featuring a map of my neighborhood in Brooklyn New York. And also using Foursquare to provide you more information about that location.
 
 ## Getting Started
 
