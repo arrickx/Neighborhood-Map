@@ -1,0 +1,81 @@
+html, body {
+	font-family: 'Raleway', sans-serif;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	padding: 5px;
+	font-size: 14px;
+}
+
+div {
+	font-family: 'Raleway', sans-serif;
+}
+
+input {
+	margin-left: 10px;
+}
+
+.sidenav {
+	height: 100%;
+	position: fixed;
+	transition: 0.5s;
+}
+
+.picture {
+	border-radius: 25px;
+	padding: 5px;
+}
+
+.title {
+	padding-left: 10px;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.list-item {
+	padding-left: 15px;
+	font-size: 20px;
+}
+
+.list-item:hover {
+	text-decoration: underline;
+}
+
+.infotitle {
+	font-size: 20px;
+	padding: 5px;
+	font-weight: bold;
+}
+
+.address {
+	font-size: 16px;
+	padding: 5px;
+}
+
+#map {
+	bottom: 0px;
+	height: 100%;
+	left: 0px;
+	margin-left: 250px;
+	position: absolute;
+	right: -250px;
+	transition: 1.0s;
+}
+
+#hamberger {
+	position: absolute;
+	border-radius: 5px;
+	top: 10px;
+	left: 270px;
+	z-index: 5;
+	background-color: #fff;
+	padding: 5px;
+	text-align: center;
+	line-height: 30px;
+	font-size: 30px;
+	cursor: pointer;
+	transition: 1.0s;
+}
