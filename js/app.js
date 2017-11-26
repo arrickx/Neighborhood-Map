@@ -124,7 +124,6 @@ function ViewModel() {
       //creates info window if you click the marker.
       populateInfoWindow(this, largeInfowindow);
     });
-
     // it makes all the markers fit into the screen.
     bounds.extend(marker.position);
     map.fitBounds(bounds);
@@ -254,4 +253,3 @@ function openNav() {
 $(document).ready(function() {
   ko.applyBindings(ViewModel());
 });
-initMap();
