@@ -231,19 +231,6 @@ function ViewModel() {
 
 }
 
-//this is how the hamburger button can show and hide the side navigation
-function openNav() {
-  if (document.getElementById("map").style.marginLeft == "0px") {
-    document.getElementById("map").style.marginLeft ="250px";
-    document.getElementById("hamberger").style.left = "270px";
-  } else {
-    document.getElementById("map").style.marginLeft = "0px";
-    document.getElementById("hamberger").style.left = "20px";
-  }
-}
-
-
-
 // Initial the map with a prefix locaqtion and limit the user control.
 var map;
 function initMap() {
