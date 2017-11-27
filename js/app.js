@@ -71,8 +71,6 @@ var initialPlaces = [{
   }
 ];
 
-
-
 // this creates the connection between the data and the user interface.
 function destination(data) {
   this.name = ko.observable(data.name);
@@ -109,9 +107,17 @@ function ViewModel() {
       //creates info window if you click the marker.
       populateInfoWindow(this, largeInfowindow);
     });
-    // it makes all the markers fit into the screen.
+    //it makes all the markers fit into the screen.
     bounds.extend(marker.position);
     map.fitBounds(bounds);
+
+  //this is how the hamburger button can show and hide the side navigation
+  self.isOpen = ko.observable(false);
+
+  self.open = function() {
+    //use it to create a toggle to make it on and off
+    self.isOpen(!self.isOpen());
+  };
   });
 
   // This make sure the info window shows all the information.
@@ -187,7 +193,6 @@ function ViewModel() {
           ' Please try again.'+'</div>';
       }
     });
-
 
     }
   }

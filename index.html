@@ -22,9 +22,9 @@
         </div>
     </div>
     <!-- The hamberger button to show and hide the side navigation -->
-    <span id="hamberger" onclick="openNav()">&#9776;</span>
+    <span id="hamberger" data-bind="click: open, style: { left: isOpen() ? '20px' : '270px'}">&#9776;</span>
     <!-- The map that contains all the details of above locations -->
-    <div id="map"></div>
+    <div id="map" data-bind="style: { marginLeft: isOpen() ? '0px' : '250px'}"></div>
     <!-- All the scripts we use in this website -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
