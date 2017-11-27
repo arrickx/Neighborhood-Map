@@ -71,23 +71,7 @@ var initialPlaces = [{
   }
 ];
 
-// Initial the map with a prefix locaqtion and limit the user control.
-var map;
-function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {
-      lat: 40.6782,
-      lng: -73.9442
-    },
-    zoom: 12,
-    mapTypeControl: false,
-    streetViewControl: false,
-  });
-}
-// if the map run into an error, it will alert the user.
-function mapError() {
-    alert("Something's wrong with the map. Please try again later!");
-}
+
 
 // this creates the connection between the data and the user interface.
 function destination(data) {
@@ -249,7 +233,24 @@ function openNav() {
   }
 }
 
-//this make sure everything is ready before showing the website.
-$(document).ready(function() {
+
+
+// Initial the map with a prefix locaqtion and limit the user control.
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {
+      lat: 40.6782,
+      lng: -73.9442
+    },
+    zoom: 12,
+    mapTypeControl: false,
+    streetViewControl: false,
+  });
+
   ko.applyBindings(ViewModel());
-});
+}
+// if the map run into an error, it will alert the user.
+function mapError() {
+    alert("Something's wrong with the map. Please try again later!");
+}
