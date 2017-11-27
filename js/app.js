@@ -90,6 +90,7 @@ function ViewModel() {
   var client_secret = "YGNCPSLBHXFWEFRWR3E3I4JUV3YHMKT0J3I53GDNTAVOUTXM";
   var foursquareUrl = "https://api.foursquare.com/v2/venues/search";
   var foursquarebaseUrl = "https://api.foursquare.com/v2/venues/";
+  var img = "https://pbs.twimg.com/media/DIxqdQFUQAEunYd.jpg";
 
   self.showPlaces = ko.observableArray(initialPlaces);
   // connect to the raw data
@@ -120,7 +121,6 @@ function ViewModel() {
       // use ajax to abstract information by using location's name
       $.ajax({
       dataType: "json",
-      async: false, // it will not work correctly if async is true.
       url: foursquareUrl,
       data: {
         client_id: client_id,
@@ -141,7 +141,6 @@ function ViewModel() {
         // It will also able to get the photos from the venue id.
         $.ajax({
           dataType: "json",
-          async: false,
           url: foursquarebaseUrl + foursquareId + '/photos',
           data: {
             client_id: client_id,
@@ -161,12 +160,26 @@ function ViewModel() {
           error: function() {
             img = 'https://pbs.twimg.com/media/DIxqdQFUQAEunYd.jpg';
           }
+        }).done(function() {
+          // Generate the infomation to the info window.
+          content = '<div class="infotitle">'+venuename+'</div>'+
+          '<img class ="picture" src="'+img+'"/>'+'<div class="address">'+
+          address1+'</div>'+'<div class="address">'+address2+'</div>'+
+          "<a href='"+foursquarelink+"'target='_blank'>"+"More Info"+"</a>";
+
+          marker.setAnimation(google.maps.Animation.BOUNCE);
+          setTimeout(function() {marker.setAnimation(null);}, 1420);
+          infowindow.marker = marker;
+          infowindow.setContent(content);
+          infowindow.open(map, marker);
+          map.setZoom(16);
+          map.panTo(marker.position);
+          // Make sure the marker property is cleared if the infowindow is closed.
+          infowindow.addListener('closeclick',function(){
+            infowindow.setMarker = null;
+          });
         });
-        // Generate the infomation to the info window.
-        content = '<div class="infotitle">'+venuename+'</div>'+
-        '<img class ="picture" src="'+img+'"/>'+'<div class="address">'+
-        address1+'</div>'+'<div class="address">'+address2+'</div>'+
-        "<a href='"+foursquarelink+"'target='_blank'>"+"More Info"+"</a>";
+
       },
       // If the AJAX not working, show the error message to the user.
       error: function() {
@@ -174,17 +187,8 @@ function ViewModel() {
           ' Please try again.'+'</div>';
       }
     });
-      marker.setAnimation(google.maps.Animation.BOUNCE);
-      setTimeout(function() {marker.setAnimation(null);}, 1420);
-      infowindow.marker = marker;
-      infowindow.setContent(content);
-      infowindow.open(map, marker);
-      map.setZoom(16);
-      map.panTo(marker.position);
-      // Make sure the marker property is cleared if the infowindow is closed.
-      infowindow.addListener('closeclick',function(){
-        infowindow.setMarker = null;
-      });
+
+
     }
   }
 
@@ -247,7 +251,7 @@ function initMap() {
     mapTypeControl: false,
     streetViewControl: false,
   });
-
+  // Make sure everything load correctly after the initMap function.
   ko.applyBindings(ViewModel());
 }
 // if the map run into an error, it will alert the user.
