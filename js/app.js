@@ -164,7 +164,21 @@ function ViewModel() {
           },
           // if there is no picture, it will show a noimg photo.
           error: function() {
-            img = 'https://pbs.twimg.com/media/DIxqdQFUQAEunYd.jpg';
+            content = '<div class="infotitle">'+venuename+'</div>'+
+            '<img class ="picture" src="'+img+'"/>'+'<div class="address">'+
+            address1+'</div>'+'<div class="address">'+address2+'</div>'+
+            "<a href='"+foursquarelink+"'target='_blank'>"+"More Info"+"</a>";
+
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+            setTimeout(function() {marker.setAnimation(null);}, 1420);
+            infowindow.marker = marker;
+            infowindow.setContent(content);
+            infowindow.open(map, marker);
+            map.setZoom(16);
+            map.panTo(marker.position);
+            infowindow.addListener('closeclick',function(){
+              infowindow.setMarker = null;
+            });
           }
         }).done(function() {
           // Generate the infomation to the info window.
@@ -191,6 +205,17 @@ function ViewModel() {
       error: function() {
           content = '<div class="infotitle">'+'Something wrong right now.'+
           ' Please try again.'+'</div>';
+
+          marker.setAnimation(google.maps.Animation.BOUNCE);
+          setTimeout(function() {marker.setAnimation(null);}, 1420);
+          infowindow.marker = marker;
+          infowindow.setContent(content);
+          infowindow.open(map, marker);
+          map.setZoom(16);
+          map.panTo(marker.position);
+          infowindow.addListener('closeclick',function(){
+            infowindow.setMarker = null;
+          });
       }
     });
 
