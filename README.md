@@ -11,6 +11,7 @@
 * You can resize the website to fit your preference.
 * You can search inside the search bar to sort for results.
 * Use the **hamberger button** to hide the side navigation bar.
+* or you Can visit [this website hosted by github](https://arrickx.github.io/Neighborhood-Map/).
 
 
 ## License
