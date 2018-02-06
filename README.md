@@ -1,5 +1,6 @@
 # Neighborhood Map
 * This is a single page application featuring a map of my neighborhood in Brooklyn New York. And also using Foursquare to provide you more information about that location.
+> [![Image](gif/map.gif)](Image)
 
 ## Getting Started
 
